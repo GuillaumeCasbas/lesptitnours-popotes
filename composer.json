@@ -1,0 +1,26 @@
+{
+  "name": "guillaumecasbas/lesptinours-popote",
+  "description": "Plugin to manage recipies",
+  "license": "MIT",
+  "homepage": "https://github.com/GuillaumeCasbas/lesptitnours-plugin",
+  "autoload": {
+      "psr-4": {
+          "Lesptitnours\\Popotes\\": "includes/"
+      }
+  },
+  "authors": [
+      {
+          "name": "Guillaume Casbas",
+          "email": "ecrire@guillaumecasbas.fr",
+          "homepage": "https://github.com/GuillaumeCasbas"
+      }
+  ],
+  "config": {
+      "vendor-dir": "lib"
+  },
+  "require": {},
+  "support": {
+        "issues": "https://github.com/GuillaumeCasbas/lesptitnours-plugin/issues",
+        "source": "https://github.com/GuillaumeCasbas/lesptitnours-plugin"
+    }
+}

@@ -1,0 +1,1 @@
+[ ] Add the custom post type to the main query (for 404 and categories queries)
