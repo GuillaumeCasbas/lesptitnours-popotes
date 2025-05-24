@@ -49,6 +49,7 @@ if (! class_exists('LesptitnoursPopote')) {
 
 
             add_action('init', array($this, 'register_post_types'));
+            add_action('pre_get_posts', array($this, 'add_post_types_to_query'), 99);
         }
 
         public function getSetting(string $name)
@@ -86,11 +87,28 @@ if (! class_exists('LesptitnoursPopote')) {
                 'menu_icon'         => 'dashicons-food',
                 'menu_position'     => 5,
                 'supports'          => ['title', 'editor', 'author', 'thumbnail', 'comments'],
-                'taxonomies'        => array( 'category', 'post_tags' ),
+                'taxonomies'        => array('category', 'post_tags'),
                 'rewrite'           => ['slug' => 'popote']
             );
 
             register_post_type('ptitnours_popote', $args);
+        }
+
+        public function add_post_types_to_query($query)
+        {
+            if (
+                (is_category() || is_tag())
+                && $query->is_main_query()
+                && $query->is_archive()
+            ) {
+                $post_types = $query->get('post_type');
+
+                $post_types = ['post'];
+                $post_types[] = 'ptitnours_popote';
+                $query->set('post_type', $post_types);
+            }
+
+            return $query;
         }
 
         public function plugin_activated()
