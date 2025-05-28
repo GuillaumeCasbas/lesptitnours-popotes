@@ -18,6 +18,8 @@
  * Domain Path:       /languages
  */
 
+use Lesptitnours\Popotes\Shortcode\LastPopotesShortcode;
+
 // If this file is called directly, abort.
 if (! defined('WPINC')) {
     die;
@@ -49,6 +51,7 @@ if (! class_exists('LesptitnoursPopote')) {
 
 
             add_action('init', array($this, 'register_post_types'));
+            add_action('init', array($this, 'register_shortcodes'), 99);
             add_action('pre_get_posts', array($this, 'add_post_types_to_query'), 99);
         }
 
@@ -109,6 +112,11 @@ if (! class_exists('LesptitnoursPopote')) {
             }
 
             return $query;
+        }
+
+        public function register_shortcodes()
+        {
+            new LastPopotesShortcode();
         }
 
         public function plugin_activated()

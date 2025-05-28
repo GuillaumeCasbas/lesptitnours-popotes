@@ -1,1 +1,1 @@
-[ ] Add the custom post type to the main query (for 404 and categories queries)
+[ ] Définir et respecter une nomenclature, c'est l'anarchie ici
